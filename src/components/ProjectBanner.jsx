@@ -1,16 +1,5 @@
 import { useNavigate } from "react-router-dom";
 
-const dummyIndustries = [
-    {
-        id: 5,
-        name: "Adventure"
-    },
-    {
-        id: 6,
-        name: "Hotel"
-    },
-]
-
 export function ProjectBanner({ project }) {
     const navigate = useNavigate();
 
@@ -20,21 +9,15 @@ export function ProjectBanner({ project }) {
                 <div className="flex justify-between items-center">
                     <h1 className="font-bold text-lg">{project.projectName}</h1>
                     <span className=" bg-sky-500 text-sm border-transparent rounded-full px-2">
-                        {
-                            dummyIndustries.find(industry => industry.id === project.industryId).name
-                        }
+                        {project.industry}
                     </span>
                 </div>
                 <div className="flex space-x-2">
-                    <img src={project.image} width={100} height={200} alt="Emmas profilbild" />
+                    <img src={project.image} width={100} height={100} alt="image" />
                     <div className="flex flex-col justify-between items-center">
                         <p>{project.description}</p>
                         <div className="flex space-x-2">
-                            {
-                                project.projectSkills.map((skill, index) => {
-                                    return <p key={index} className=" bg-slate-200 text-sm border-transparent rounded-full px-2">{skill}</p>
-                                })
-                            }
+                            {project.projectSkills}
                         </div>
                     </div>
                 </div>

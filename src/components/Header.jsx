@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { AppContext } from "../App";
+import { useKeycloak } from "@react-keycloak/web";
 
 export function Header() {
 
-    const { setLoginModalOpen } = useContext(AppContext);
+    const { keycloak } = useKeycloak();
 
     return(
         <header class="flex bg-white sticky top-0 z-10 w-full border-b-[2px] border-gray-500 p-8">
@@ -24,7 +23,19 @@ export function Header() {
                     </form>
                 </div>
                 <div>
-                    <button onClick={() => setLoginModalOpen(true)} class="bg-orange-700 text-white px-5 py-2 rounded-full hover:bg-red-800">Sign in</button>
+                    {
+                        keycloak.authenticated ? 
+                        (
+                            <div className="flex space-x-4 items-center">
+                                <p>Inloggad som: </p>
+                                <p className="font-bold">{keycloak.tokenParsed.preferred_username}</p>
+                                <button onClick={() => keycloak.logout()} class="bg-orange-700 text-white px-5 py-2 rounded-full hover:bg-red-800">Sign out</button>
+                            </div>
+                        ) : 
+                        (
+                            <button onClick={() => keycloak.login()} class="bg-orange-700 text-white px-5 py-2 rounded-full hover:bg-red-800">Sign in</button>
+                        )
+                    }
                 </div>
             </div>
         </header>
