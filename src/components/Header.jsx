@@ -7,7 +7,7 @@ export function Header() {
     const navigate = useNavigate();
 
     return(
-        <header className="flex bg-white sticky top-0 z-10 w-full mb-4 border-b-[2px] border-gray-500 p-8">
+        <header className="flex bg-white sticky top-0 z-10 w-full border-b-[2px] border-gray-500 p-8">
             <div className="flex w-full items-center justify-between">
                 <div>
                     <img className="w-28" src="/Logo.png" alt="Logo"></img>
