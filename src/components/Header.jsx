@@ -1,4 +1,5 @@
 import { useKeycloak } from "@react-keycloak/web";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
@@ -11,18 +12,6 @@ export function Header() {
             <div className="flex w-full items-center justify-between">
                 <div>
                     <img className="w-28" src="/Logo.png" alt="Logo"></img>
-                </div>
-                <div>
-                    <form>
-                        <input 
-                            className="w-[300px] border-2 border-slate-300 rounded-full pl-2 py-1"
-                            type="text" 
-                            name="search" 
-                            placeholder="Search" 
-                            aria-label="search"
-                        >
-                        </input>
-                    </form>
                 </div>
                 <div>
                     {
