@@ -1,13 +1,14 @@
 import { MyProjectBanner } from "../components/MyProjectBanner";
 import { useEffect, useState } from "react";
 
-export function ProjectPage(){
+export function MyProjectPage(){
 
     const [projects, setProjects] = useState([]);
+    const [user, setUser] = useState([]);
 
     useEffect(() => {
         const fetchProjects = async () => {
-            const response = await fetch('https://localhost:7291/api/Project');
+            const response = await fetch(`https://localhost:7291/api/${user.id}/Project/users`);
             //Replace endpoint with get all projects by user from user project.
             const data = await response.json();
             setProjects(data);

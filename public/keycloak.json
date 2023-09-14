@@ -1,8 +1,8 @@
 {
-    "realm": "lagaltrealm",
-    "auth-server-url": "http://localhost:8080/",
+    "realm": "team-lagalt",
+    "auth-server-url": "https://lemur-9.cloud-iam.com/auth/",
     "ssl-required": "external",
-    "resource": "Lagalt",
+    "resource": "lagalt",
     "public-client": true,
     "confidential-port": 0
   }
