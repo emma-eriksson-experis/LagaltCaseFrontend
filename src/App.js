@@ -20,9 +20,17 @@ function App() {
                 <AdminPage />
               </ProtectedRoute>
             } />
-            <Route path="/profile/:userId" element={ <ProfilePage />} />
             <Route path="/project/:projectId" element={ <ProjectPage />} />
-            <Route path="/myproject/:projectId" element={ <MyProjectPage />} />
+            <Route path="/profile/:userId" element={
+              <ProtectedRoute roles={['default-roles-team-lagalt']}> 
+                <ProfilePage />
+                </ProtectedRoute>
+            } />
+            <Route path="/myproject/:userId" element={
+              <ProtectedRoute roles={['default-roles-team-lagalt']}> 
+                <MyProjectPage/>
+              </ProtectedRoute>
+            } />
           </Routes>
         </div>
     </BrowserRouter>
