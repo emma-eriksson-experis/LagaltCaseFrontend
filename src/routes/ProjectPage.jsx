@@ -31,7 +31,6 @@ export function ProjectPage(){
         const fetchAdmin = async () => {
             const response = await fetch(`https://localhost:7291/api/Admin/${project.userId}/projects`);
             const data = await response.json();
-            console.log(data);
             if(data.length > 0)
             {
                 setAdmin(data[0]);
@@ -45,11 +44,9 @@ export function ProjectPage(){
     useEffect(() => {
         const fetchUser = async () => {
             const response = await fetch(`https://localhost:7291/api/Users/UniqueUser/${keycloak.subject}`);
-            console.log(response);
             const data = await response.json();
             setUser(data);
         };
-        console.log(keycloak)
         if(initialized && keycloak.authenticated)
         {
             fetchUser();
@@ -59,7 +56,6 @@ export function ProjectPage(){
 
 
     const createProjectApplication = async () => {
-        console.log(user);
         const url = "https://localhost:7291/api/ProjectApplication";
         const data = {
             "userId": user.id,
@@ -95,15 +91,25 @@ export function ProjectPage(){
     }
 
     return(
-        <main>
+        <main className="flex justify-center">
             {
                 project ? (
-                    <div>
-                        <h2>Project Details</h2>
-                        <p>Project Name {project.projectName}</p>
-                        <p>Description {project.description}</p>
-                        {/* Render other project details as needed */}
-                        <button onClick={() => setOpen(true)}>Join Project</button>
+                    
+                    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+                        <img className="w-full" src={project.image} width={100} height={100} alt="image" />
+                        <div className="flex justify-center">
+                            <h2 className="font-bold text-lg">{project.projectName}</h2>
+                        </div>
+                        <div className="px-2 flex flex-col justify-center">
+                            <p>Description {project.description}</p>
+                            <div className="flex justify-center mt-1">
+                                {
+                                    keycloak.authenticated && ( 
+                                        <button className="bg-emerald-500 text-white active:bg-emerald-600 hover:bg-emerald-300 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setOpen(true)}>Join Project</button>
+                                    )
+                                }
+                            </div>
+                        </div>
                     </div>
                 ) : (
                     <p>Loading project details...</p>
