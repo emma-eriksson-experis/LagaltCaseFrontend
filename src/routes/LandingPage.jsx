@@ -27,10 +27,10 @@ export function LandingPage(){
 
     return(
         <main className="flex flex-col items-center">
-                 <div>
+                 <div className="pb-6">
                     <form>
                         <input 
-                            className="w-[300px] border-2 border-slate-300 rounded-full pl-2 py-1"
+                            className="w-96 border-2 border-sky-200 rounded-full pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300"
                             type="text" 
                             name="search" 
                             placeholder="Search" 
@@ -40,7 +40,7 @@ export function LandingPage(){
                         </input>
                     </form>
                 </div>
-            <div className="w-2/5">
+            <div className="p-6">
                 {
                     filteredProjects.map(project => <ProjectBanner key={project.id} project={project} />)
                 }
