@@ -91,21 +91,21 @@ export function ProjectPage(){
     }
 
     return(
-        <main className="flex justify-center">
+        <main className="flex justify-start p-12">
             {
                 project ? (
                     
                     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
                         <img className="w-full" src={project.image} width={100} height={100} alt="image" />
-                        <div className="flex justify-center">
-                            <h2 className="font-bold text-lg">{project.projectName}</h2>
+                        <div className="flex justify-start pl-4 pt-4">
+                            <h2 className="font-light text-lg">{project.projectName}</h2>
                         </div>
-                        <div className="px-2 flex flex-col justify-center">
+                        <div className="px-2 flex flex-col justify-start pl-4">
                             <p>Description {project.description}</p>
-                            <div className="flex justify-center mt-1">
+                            <div className="flex justify-center mt-1 p-4">
                                 {
                                     keycloak.authenticated && ( 
-                                        <button className="bg-emerald-500 text-white active:bg-emerald-600 hover:bg-emerald-300 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setOpen(true)}>Join Project</button>
+                                        <button className="bg-gradient-to-r from-teal-300 to-blue-500 text-white text-white font-normal active:bg-emerald-600 hover:bg-emerald-300 hover:from-blue-500 hover:to-teal-200 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setOpen(true)}>Join Project</button>
                                     )
                                 }
                             </div>
