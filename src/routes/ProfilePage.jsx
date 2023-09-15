@@ -106,47 +106,47 @@ export function ProfilePage(){
                                     <label className="font-semibold">
                                         Email
                                     </label>
-                                    <input type="text" disabled={!isSelf} value={email} onChange={(event) => setEmail(event.target.value)}/>
+                                    <input className="w-80 border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="text" disabled={!isSelf} value={email} onChange={(event) => setEmail(event.target.value)}/>
                                 </div>
                                 <div className="flex flex-col">
                                     <label className="font-semibold">
                                         Country
                                     </label>
-                                    <input type="text" disabled={!isSelf} value={country} onChange={(event) => setCountry(event.target.value)}/>
+                                    <input className="w-30 border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="text" disabled={!isSelf} value={country} onChange={(event) => setCountry(event.target.value)}/>
                                 </div>
                             </div>
                             <div className="flex flex-col">
                                 <label className="font-semibold">
                                     Bio
                                 </label>
-                                <textarea value={bio} disabled={!isSelf} onChange={(event) => setBio(event.target.value)}/>
+                                <textarea className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" rows="4" value={bio} disabled={!isSelf} onChange={(event) => setBio(event.target.value)}/>
                             </div>
                             <div className="flex flex-col">
                                 <label className="font-semibold">
                                     Picture
                                 </label>
-                                <input type="text" disabled={!isSelf} value={picture} onChange={(event) => setPicture(event.target.value)}/>
+                                <input className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="text" disabled={!isSelf} value={picture} onChange={(event) => setPicture(event.target.value)}/>
                             </div>
                             <div className="flex flex-col">
                                 <label className="font-semibold">
                                     User Skills
                                 </label>
-                                <input type="text" disabled={!isSelf} value={userSkills} onChange={(event) => setUserSkills(event.target.value)}/>
+                                <textarea className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" rows="4" disabled={!isSelf} value={userSkills} onChange={(event) => setUserSkills(event.target.value)}/>
                             </div>
                             <div className="flex flex-col">
                                 <label className="font-semibold">
                                     User Accomplishments
                                 </label>
-                                <input type="text" disabled={!isSelf} value={userAccomplishments} onChange={(event) => setUserAccomplishments(event.target.value)}/>
+                                <textarea className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" rows="4" disabled={!isSelf} value={userAccomplishments} onChange={(event) => setUserAccomplishments(event.target.value)}/>
                             </div>
                             <div className="flex space-x-1">
                                 <label className="font-semibold">
                                     Hidden
                                 </label>
-                                <input type="checkbox" disabled={!isSelf} checked={hidden} onChange={() => setHidden(!hidden)}/>
+                                <input className="w-10 border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="checkbox" disabled={!isSelf} checked={hidden} onChange={() => setHidden(!hidden)}/>
                             </div>
                             <div className="flex justify-center">
-                                <input className="bg-orange-700 text-white px-5 py-2 rounded-full hover:bg-red-800" type="submit" value="Save"/>
+                                <input className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal mb-10 cursor-pointer" type="submit" value="Save"/>
                             </div>
                         </>
                     )
