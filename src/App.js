@@ -12,7 +12,7 @@ function App() {
   return (
       <BrowserRouter>
         <Header />
-        <div className="h-screen bg-slate-200 pt-4">
+        <div className="h-screen bg-white pt-4">
           <Routes>
             <Route path="/" element={ <LandingPage />} />
             <Route path="/admin" element={

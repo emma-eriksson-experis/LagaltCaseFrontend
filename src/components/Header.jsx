@@ -8,23 +8,23 @@ export function Header() {
     const navigate = useNavigate();
 
     return(
-        <header className="flex bg-white sticky top-0 z-10 w-full shadow-lg pr-8 h-32">
+        <header className="flex bg-white sticky top-0 z-10 w-full pr-8 h-32">
             <div className="flex w-full items-center justify-between">
                 <div>
-                    <img className="w-64" src="/Logo.png" alt="Logo"></img>
+                    <img className="w-64 p-8" src="/Cre8ive.jpg" alt="Logo"></img>
                 </div>
                 <div>
                     {
                         keycloak.authenticated ? 
                         (
                             <div className="flex space-x-4 items-center">
-                                <p>Logged in as: </p>
-                                <p onClick={() => navigate(`/profile/${keycloak.subject}`) }className="font-bold cursor-pointer">{keycloak.tokenParsed.preferred_username}</p>
-                                <button onClick={() => keycloak.logout()} className="bg-sky-300 text-white px-5 py-2 rounded-full hover:bg-sky-600">Sign out</button>
+                                <p>Hello</p>
+                                <p onClick={() => navigate(`/profile/${keycloak.subject}`) }className="cursor-pointer">{keycloak.tokenParsed.preferred_username}!</p>
+                                <button onClick={() => keycloak.logout()} className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal">Sign out</button>
                             </div>
                         ) : 
                         (
-                            <button onClick={() => keycloak.login()} className="bg-sky-300 text-white px-5 py-2 rounded-full hover:bg-sky-600">Sign in</button>
+                            <button onClick={() => keycloak.login()} className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal">Sign in</button>
                         )
                     }
                 </div>
