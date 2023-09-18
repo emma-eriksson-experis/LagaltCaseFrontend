@@ -62,8 +62,6 @@ export function AdminPage(){
                   return { ...application, user: userData };
                 })
               );
-
-              console.log(applicationsWithUsers)
       
               // Update state with the combined data
               setProjectApplications(applicationsWithUsers);
@@ -198,6 +196,7 @@ export function AdminPage(){
                                     <div className="flex flex-col">
                                         <h1 className="font-bold text-lg">{projectApplication.user.fullName}</h1>
                                         <h3 className="italic text-md">{projectApplication.motivation}</h3>
+                                        <h3 className="italic text-md">{projectApplication.user.userSkills}</h3>
                                     </div>
                                     <div className="flex space-x-2">
                                         <button onClick={() => acceptApplication(projectApplication)} className="bg-green-600 text-white border-transparent rounded-md px-2 hover:bg-green-400">Accept</button>
