@@ -12,7 +12,7 @@ export function Header() {
                 <div onClick={() => navigate("/")} className="cursor-pointer">
                     <img className="w-64 p-8" src="/Cre8ive.jpg" alt="Logo"></img>
                 </div>
-                <div>
+                <div className="flex space-x-4">
                     {
                         keycloak.authenticated ? 
                         (
@@ -25,6 +25,11 @@ export function Header() {
                         ) : 
                         (
                             <button onClick={() => keycloak.login()} className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal">Sign in</button>
+                        )
+                    }
+                    {
+                        (keycloak.authenticated && keycloak.hasRealmRole('Admin')) && (
+                            <button onClick={() => navigate("/admin")} className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal">Admin</button>
                         )
                     }
                 </div>
