@@ -1,7 +1,7 @@
 export function MyProjectBanner ({ project }) {
 
     return (
-        <article className="bg-white mt-4 border-transparent rounded shadow-lg p-2 cursor-pointer">
+        <article className="bg-white mt-4 border-transparent rounded shadow-lg p-2">
             <section className="flex flex-col space-y-4">
                 <div className="flex justify-between items-center">
                     <h1 className="font-bold text-lg">{project.projectName}</h1>

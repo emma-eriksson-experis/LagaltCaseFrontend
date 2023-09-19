@@ -1,11 +1,14 @@
 import { useKeycloak } from "@react-keycloak/web";
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { AppContext } from "../App";
 
 export function ProfilePage(){
 
     const { userId } = useParams();
     const { keycloak } = useKeycloak();
+
+    const { setUser } = useContext(AppContext);
 
     const [id, setId] = useState(null);
     const [fullName, setFullName] = useState("");

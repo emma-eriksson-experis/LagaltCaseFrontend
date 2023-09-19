@@ -77,7 +77,7 @@ function App() {
 
   return (
     <ReactKeycloakProvider authClient={keycloak} initOptions={config} onEvent={handleKeycloakEvent} >
-      <AppContext.Provider value={{ user }}>
+      <AppContext.Provider value={{ user, setUser }}>
         <BrowserRouter>
           <Header />
           <div className="h-screen bg-white pt-4">
