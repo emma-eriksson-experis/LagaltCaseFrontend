@@ -20,7 +20,10 @@ export function Header() {
                                 <p>Hello</p>
                                 <p onClick={() => navigate(`/profile/${keycloak.subject}`) }className="cursor-pointer">{keycloak.tokenParsed.preferred_username}!</p>
                                 
-                                <button onClick={() => keycloak.logout()} className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal">Sign out</button>
+                                <button  className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal" 
+                                onClick={() => keycloak.logout({redirectUri: window.location.origin}).then(() => {
+                                    navigate("/");})}
+                                >Sign out</button>
                             </div>
                         ) : 
                         (
