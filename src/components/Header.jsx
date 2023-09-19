@@ -23,9 +23,8 @@ export function Header() {
                         (
                             <div className="flex space-x-4 items-center">
                                 <p>Hello</p>
-                                <p onClick={() => navigate(`/profile/${keycloak.subject}`) }className="cursor-pointer">{keycloak.tokenParsed.preferred_username}!</p>
-                                
-                                <button  className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal" 
+                                <p className="cursor-pointer hover:text-blue-500" onClick={() => navigate(`/profile/${keycloak.subject}`) }>{keycloak.tokenParsed.preferred_username}!</p>
+                                <button className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal" 
                                 onClick={() => keycloak.logout({redirectUri: window.location.origin}).then(() => {
                                     navigate("/");})}
                                 >Sign out</button>
