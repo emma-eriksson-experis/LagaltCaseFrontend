@@ -90,8 +90,6 @@ export function AdminPage(){
         
             if(response.ok) {
                 alert("Project updated successfully");
-            } else {
-                alert("Project not updated successfully");
             }
         } catch(error) {
             alert("An error occured while updating the project");
@@ -181,7 +179,7 @@ export function AdminPage(){
                             <textarea className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="text" value={selectedProject.projectSkills} onChange={(event) => setSelectedProject({ ...selectedProject, projectSkills: event.target.value })}/>
                         </div>
                         <div className="flex">
-                            <input className="bg-orange-700 text-white px-5 py-2 rounded-full hover:bg-red-800" type="submit" value="Save"/>
+                            <input className=" cursor-pointer bg-orange-700 text-white px-5 py-2 rounded-full hover:bg-red-800" type="submit" value="Save"/>
                         </div>
                     </form>
                 )
