@@ -32,7 +32,7 @@ export function Header() {
                     }
                     {
                         (keycloak.authenticated && keycloak.hasRealmRole('default-roles-team-lagalt')) && (
-                            <button onClick={() => navigate("/myprojects")} className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal">My Projects</button>
+                            <button onClick={() => navigate("/myproject/1")} className="w-32 bg-gradient-to-r from-teal-300 to-blue-500 text-white px-5 py-2 rounded-full p-2 hover:from-blue-500 hover:to-teal-200 font-normal">My Projects</button>
                         )
                     }
                     {
