@@ -6,10 +6,15 @@ export function Header() {
     const { keycloak } = useKeycloak();
     const navigate = useNavigate();
 
+    const goToHome = () => {
+        navigate("/"); 
+        navigate(0);
+    }
+
     return(
         <header className="flex bg-white sticky top-0 z-10 w-full pr-8 h-32">
             <div className="flex w-full items-center justify-between">
-                <div onClick={() => navigate("/")} className="cursor-pointer">
+                <div onClick={goToHome} className="cursor-pointer">
                     <img className="w-64 p-8" src="/Cre8ive.jpg" alt="Logo"></img>
                 </div>
                 <div className="flex space-x-4">

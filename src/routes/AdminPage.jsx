@@ -139,7 +139,7 @@ export function AdminPage(){
                 projects.map(project => (
                     <div key={project.id} className="flex space-x-4"> 
                         <h1 className="font-semibold text-lg">{project.projectName}</h1>
-                        <button onClick={() => setSelectedProject(project)} className="bg-blue-600 text-white border-transparent rounded-md px-2 hover:bg-blue-400">Edit</button>
+                        <button onClick={() => selectedProject ? setSelectedProject(null) : setSelectedProject(project)} className="bg-blue-600 text-white border-transparent rounded-md px-2 hover:bg-blue-400">Edit</button>
                     </div>
                 ))
             }
@@ -150,19 +150,19 @@ export function AdminPage(){
                             <label className="font-semibold">
                                 Project name
                             </label>
-                            <input type="text" value={selectedProject.projectName} onChange={(event) => setSelectedProject({ ...selectedProject, projectName: event.target.value })}/>
+                            <input className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="text" value={selectedProject.projectName} onChange={(event) => setSelectedProject({ ...selectedProject, projectName: event.target.value })}/>
                         </div>
                         <div className="flex flex-col">
                             <label className="font-semibold">
                                 Description
                             </label>
-                            <input type="text" value={selectedProject.description} onChange={(event) => setSelectedProject({ ...selectedProject, description: event.target.value })}/>
+                            <textarea className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="text" rows="6" value={selectedProject.description} onChange={(event) => setSelectedProject({ ...selectedProject, description: event.target.value })}/>
                         </div>
                         <div className="flex flex-col">
                             <label className="font-semibold">
                                 Industry
                             </label>
-                            <select value={selectedProject.industryId} onChange={(event) => setSelectedProject({ ...selectedProject, industryId: event.target.value })}>
+                            <select className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" value={selectedProject.industryId} onChange={(event) => setSelectedProject({ ...selectedProject, industryId: event.target.value })}>
                                 {
                                     industries.map((industry) => <option key={industry.id} value={industry.id}>{industry.industryName}</option>)
                                 }
@@ -172,13 +172,13 @@ export function AdminPage(){
                             <label className="font-semibold">
                                 Image
                             </label>
-                            <input type="text" value={selectedProject.image} onChange={(event) => setSelectedProject({ ...selectedProject, image: event.target.value })}/>
+                            <input className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="text" value={selectedProject.image} onChange={(event) => setSelectedProject({ ...selectedProject, image: event.target.value })}/>
                         </div>
                         <div className="flex flex-col">
                             <label className="font-semibold">
                                 Project Skills
                             </label>
-                            <input type="text" value={selectedProject.projectSkills} onChange={(event) => setSelectedProject({ ...selectedProject, projectSkills: event.target.value })}/>
+                            <textarea className="w-full border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" type="text" value={selectedProject.projectSkills} onChange={(event) => setSelectedProject({ ...selectedProject, projectSkills: event.target.value })}/>
                         </div>
                         <div className="flex">
                             <input className="bg-orange-700 text-white px-5 py-2 rounded-full hover:bg-red-800" type="submit" value="Save"/>
@@ -187,7 +187,7 @@ export function AdminPage(){
                 )
             }
             {
-                !!projectApplications.length && (
+                (!!projectApplications.length && selectedProject) && (
                     <div className="flex flex-col space-y-2 py-4">
                         <h1 className="font-bold text-2xl">Applications</h1>
                         {

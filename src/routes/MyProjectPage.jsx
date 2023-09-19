@@ -22,7 +22,7 @@ export function MyProjectPage(){
 
     return(
         <main className="flex flex-col items-center">
-            <div className="w-2/5">
+            <div className="w-auto">
                 {
                     projects.map(project => <MyProjectBanner key={project.id} project={project} />)
                 }

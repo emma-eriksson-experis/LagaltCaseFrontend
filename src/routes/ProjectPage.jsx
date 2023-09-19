@@ -1,6 +1,6 @@
 import { useKeycloak } from "@react-keycloak/web";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { formatDate } from '../utils/date';
 
 export function ProjectPage(){
@@ -14,6 +14,7 @@ export function ProjectPage(){
     const [admin, setAdmin] = useState(null);
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProject = async () => {
@@ -201,7 +202,7 @@ export function ProjectPage(){
                                 comments.map((comment) => (
                                     <div className="flex space-x-2" key={comment.id}>
                                         <div className="flex flex-col border-2 p-2 w-[300px]">
-                                            <p className="italic">{comment.user.fullName} - {formatDate(comment.createdDate)}</p>
+                                            <p onClick={() => navigate(`/profile/${comment.user.uuId}`)} className="italic cursor-pointer hover:text-blue-500">{comment.user.fullName} - {formatDate(comment.createdDate)}</p>
                                             <p>{comment.text}</p>
                                         </div>
                                         {
