@@ -226,7 +226,7 @@ export function LandingPage(){
                                             <label className="font-semibold">
                                                 Skills
                                             </label>
-                                            <input className="border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" value={newProjectSkills} onChange={(event) => setNewProjectSkills(event.target.value)}/>
+                                            <input className="border-2 border-sky-200 pl-2 py-1 hover:border-sky-400 focus:outline-none focus:ring focus:ring-sky-300" placeholder="Directing, Editing..." value={newProjectSkills} onChange={(event) => setNewProjectSkills(event.target.value)}/>
                                         </div>
                                     
                                         <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">

@@ -13,9 +13,6 @@ export function MyProjectBanner ({ project }) {
                     <img src={project.image} width={100} height={100} alt="image" />
                     <div className="flex flex-col justify-between items-center">
                         <p>{project.description}</p>
-                        <div className="flex space-x-2">
-                            {project.projectSkills}
-                        </div>
                     </div>
                 </div>
             </section>
