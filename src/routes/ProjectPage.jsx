@@ -74,6 +74,14 @@ export function ProjectPage(){
         } 
     }, [project]);
 
+/**
+     * createProjectApplication Function:
+     * - Handles the creation of a project application by sending a POST request to the server.
+     * - Constructs a data object with application details, including the user ID, project ID, admin ID,
+     *   application status, and a motivation message.
+     * - Sends a POST request to create the project application based on the provided URL.
+     * - Displays success or error alerts based on the response.
+ */
     const createProjectApplication = async () => {
         const url = "https://localhost:7291/api/ProjectApplication";
         const data = {
@@ -148,6 +156,13 @@ export function ProjectPage(){
         createComment();
     }
 
+/**
+    * deleteComment Function:
+    * - Handles the deletion of a comment by sending a DELETE request to the server.
+    * - Takes the 'commentId' as a parameter to specify which comment to delete.
+    * - Sends a DELETE request to the server based on the provided URL.
+    * - If the deletion is successful (response.ok), it updates the 'comments' state to remove the deleted comment.
+ */
     const deleteComment = async (commentId) => {
         const response = await fetch(`https://localhost:7291/api/Comment/${commentId}`, {
             method: 'DELETE',

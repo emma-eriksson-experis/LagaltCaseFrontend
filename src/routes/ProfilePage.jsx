@@ -50,7 +50,14 @@ export function ProfilePage(){
         return loggedInUser === userId;
     }, [userId, keycloak.authenticated, keycloak.subject]);
 
-    // <<< Functions <<<
+/**
+     * updateUser Function:
+     * - Handles the updating of user data via a PUT request to the server.
+     * - Constructs a data object with user details, including ID, UUID, full name, email, bio, country, picture,
+     *   user skills, user accomplishments, and a flag indicating if the user is hidden.
+     * - Sends a PUT request to update the user's data based on the provided URL.
+     * - Displays success or error alerts based on the response.
+ */
     const updateUser = async () => {
         const url = `https://localhost:7291/api/Users/${id}`;
         const data = {

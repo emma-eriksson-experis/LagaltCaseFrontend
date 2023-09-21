@@ -51,12 +51,23 @@ export function LandingPage(){
         fetchProjects();
     }, []);
 
+/**
+     * Handles the change event when the user enters text in a search input field.
+     * - Extracts the query from the input field's value.
+     * - Filters the projects based on whether their project names contain the query (case-insensitive).
+     * - Updates the state variable 'filteredProjects' with the filtered result.
+ */
     const handleOnChange = (event) => {
         const query = event.target.value;
         const newFilteredProjects = projects.filter(project => project.projectName.toLowerCase().includes(query.toLowerCase()));
         setFilteredProjects(newFilteredProjects);
     }
-
+/**
+     * Handles the change event when the user selects an industry from a dropdown.
+     * - Extracts the selected industry ID from the event.
+     * - If the selected ID is '0' (indicating all industries), it sets 'filteredProjects' to the original 'projects' list.
+     * - Otherwise, it filters projects based on the selected industry ID and updates 'filteredProjects' accordingly.
+ */
     const handleIndustryChange = (event) => {
         const industryId = event.target.value;
         if (industryId === '0') {
@@ -66,7 +77,13 @@ export function LandingPage(){
             setFilteredProjects(newFilteredProjects);
         }
     }
-
+/**
+     * Creates a new project by sending a POST request to the server.
+     * - Constructs the data object with project details.
+     * - Sends a POST request to the server with the project data.
+     * - If the request is successful, adds the new project to the state variables 'projects' and 'filteredProjects'.
+     * - Closes the form (assuming it's used for creating projects).
+ */
     const createNewProject = async () => {
         const url = "https://localhost:7291/api/Project";
         const data = {
@@ -109,6 +126,12 @@ export function LandingPage(){
         };
     }
 
+/**
+     * Creates a new admin by sending a POST request to the server.
+     * - Logs the new admin data to the console.
+     * - Sends a POST request to the server with the new admin's data.
+     * - Handles any errors that may occur during the request.
+ */
     const createNewAdmin = async (newAdmin) => {
         console.log(newAdmin)
         const url = "https://localhost:7291/api/Admin";
@@ -126,6 +149,14 @@ export function LandingPage(){
         };
     }
 
+/**
+     * Handles the form submission when creating a new project.
+     * - Prevents the default form submission behavior.
+     * - Calls the 'createNewProject' function to create a new project.
+     * - Logs the newly created project data to the console.
+     * - Constructs data for creating a new admin associated with the project.
+     * - Calls the 'createNewAdmin' function to create the new admin.
+ */
     const handleNewProjectSubmit = async (event) => {
         event.preventDefault();
 

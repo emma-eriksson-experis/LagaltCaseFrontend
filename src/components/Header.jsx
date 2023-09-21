@@ -6,6 +6,11 @@ export function Header() {
     const { keycloak } = useKeycloak();
     const navigate = useNavigate();
 
+    /**
+     * Navigates to the home page.
+     * - Uses the navigate function to navigate to the root path ("/")
+     * - Refresh the page.
+ */
     const goToHome = () => {
         navigate("/"); 
         navigate(0);

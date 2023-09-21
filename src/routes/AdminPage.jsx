@@ -96,6 +96,11 @@ export function AdminPage(){
         }
     };
 
+/**
+     * Handles the acceptance of a project application.
+     * - It updates the selected project by adding the user associated with the application.
+     * - It then proceeds to delete the accepted application.
+ */
     const acceptApplication = (application) => {
         updateProject({
             ...selectedProject,
@@ -126,6 +131,12 @@ export function AdminPage(){
         }
     }
 
+/**
+     * Handles the form submission when editing a project.
+     * - Prevents the default form submission behavior.
+     * - Calls the updateProject function to update project details based on the form inputs.
+     *
+ */
     const handleSubmit = (event) => {
         event.preventDefault();
         updateProject({ ...selectedProject });
